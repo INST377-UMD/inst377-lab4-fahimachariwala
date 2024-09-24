@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>INST377 - Lab 4</title>
+    <link rel="stylesheet" href="lab4style.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            var alertvalue = document.getElementById("alertbutton");
+            alertvalue.addEventListener("click", function() {
+                var namevalue = document.getElementById("name").value;
+                alert(`Hi ${namevalue}!`);
+            });
+
+            var changevalue = document.getElementById("changebutton");
+            let toggle = true;  
+            changevalue.addEventListener("click", function() {
+                document.body.style.backgroundColor = toggle ? "green" : "lightblue";
+                toggle = !toggle;  
+            });
+
+            var validatevalue = document.getElementById("validate");
+            var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            validatevalue.addEventListener("click", function() {
+                var testerInput = document.getElementById("tester").value;
+                if (validation.test(testerInput)) {
+                    alert("How about...nah");
+                }
+            });
+
+            var addvalue = document.getElementById("add");
+            var heading = document.querySelector("h1");
+
+            addvalue.addEventListener("click", function() {
+                heading.textContent = "INST377 - Lab 4 Adding text";
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h1>INST377 - Lab 4</h1>
+
+    <div class = "top">
+    <section class = "section sectionleft">
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <input type="submit" id="alertbutton" value="Alert Me!">
+        </form>
+    </section>
+    <section class = "section sectionright">
+           <input type ="button" id="changebutton" value="Change Color"></button>
+    </section>
+    </div>
+
+    <div class = "bottom">
+    <section class = "section sectionleft">
+        <form>
+            <label for="tester">Text Tester:</label>
+            <input type="text" id="tester" name="tester">
+            <input type="submit" id="validate" value="Validate Text">
+        </form>
+    </section>
+    <section class = "section sectionright">
+        <input type ="button" id="add" value="Add Text"> </button>
+    </section>
+    </div>
+</body>
+</html>
